@@ -17,7 +17,7 @@ class Net extends CI_Controller {
 	function __destruct() {
         parent::__construct();
 
-		echo " you ";
+		echo " you 2";
         
     }
 
