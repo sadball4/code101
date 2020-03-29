@@ -3,22 +3,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Net extends CI_Controller {
 
-	function __construct() {
-        parent::__construct();
-
-		echo "you ";
-        
-    }
+	//function __construct() {
+    //    parent::__construct();
+	//
+	//	echo "";
+    //    
+    //}
 	public function index()
 	{
 		echo "Thearayut Tancharoen";
 	}
+	public function get_view()
+	{
+		$this->load->view('home_view');
+	}
 
-	function __destruct() {
-        parent::__construct();
-
-		echo " you 2";
-        
-    }
+	//function __destruct() {
+    //    parent::__construct();
+	//
+	//	echo "";
+    //    
+	//}
+	
 
 }
