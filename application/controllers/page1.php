@@ -10,6 +10,10 @@ class Page1 extends CI_Controller {
 	{
 		$this->load->view('page2');
     }
+    public function page3()
+	{
+		$this->load->view('page3');
+    }
 
 
 }
