@@ -11,10 +11,18 @@ class User_model extends CI_Model {
         $query = $this->db->get('user_db'); //select * from user_db;
         $row = $query->num_rows();
         if($row == 0){
-            return false;
+            return false; // ถ้าค่าของข้อมูลว่างเปล่าให้แสดงออก false แล้วกลับไปตรวจสอบใหม่
         }
 
-        return $query;
+        return $query; // ถ้าไม่เข้าเงื่อนไขเท่ากับ 0 ให้แสดงข้อมูลออกมา
+
+    }
+    public function delete($username){
+        //delete 
+        $this->db->where('username',$username); // where username = '$username'
+        $this->db->delete('user_db');  // นำค่ามา delete
+
+        return true;
 
     }
 
