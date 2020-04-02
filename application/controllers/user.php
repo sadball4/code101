@@ -70,4 +70,18 @@ class User extends CI_Controller {
 
         redirect('user/get');
     }
+    
+
+    public function update($username){
+        $data['data_user'] = $this->user_model->get_by_username($username); //เรียกใช้ function get_by_username จาก model user_model เรียกข้อมูล ของ  username แล้วเอามาเก็บไวใน $data
+        $this->load->view('user/update_view',$data);// แล้วส่งไปที่หน้า update_view
+
+    }
+
+    public function updatesave(){
+        $this->user_model->updatesave();
+
+        redirect('user/get');
+
+    }
 }

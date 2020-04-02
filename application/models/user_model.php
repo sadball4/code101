@@ -25,6 +25,34 @@ class User_model extends CI_Model {
         return true;
 
     }
+ 
+    public function get_by_username($username){
+        $this->db->where('username',$username);
+       $query = $this->db->get('user_db');
+       $row = $query->num_rows();
+       if($row != 1){
+           return false;
+       }
+
+       return  $query->row_array();
+
+
+    } 
+
+    public function updatesave(){
+        $data = array(
+            'username' => $this->input->post('username'),
+            'password'  => $this->input->post('password'),
+            'name'  => $this->input->post('name'),
+            'age'   => $this->input->post('age'),
+            'birthday' =>$this->input->post('birthday')
+        );
+        $this->db->where('username',$this->input->post('main_username'));
+        $this->db->set($data);
+        $this->db->update('user_db');
+        return true;
+    }
+
 
 }
 ?>

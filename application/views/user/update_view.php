@@ -1,3 +1,6 @@
+<?php 
+//data set data_user = row 
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,41 +11,47 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>form add user!</title>
+    <title>update user!</title>
   </head>
   <body>
   <div class="container">
-      <h1> form add user </h1>
+      <h1> user : <?php echo $data_user['username'];?></h1>
       <br>
 
-  <form method="POST" action="<?php echo site_url('user/add_save_form2');?>"> <!--ส่งค่าไปที่ไฟล์ user แล้วเรียกใช้ function add_save_form-->
+  <form method="POST" action="<?php echo site_url('user/updatesave');?>">
+  <input name="main_username" type="hidden" value="<?php echo $data_user['username'];?>">
   <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input name="username" type="text" class="form-control" id="exampleInputNmae" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1">username</label>
+    <input name="username" value="<?php echo $data_user['username'];?>" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="text" class="form-control" id="exampleInputPassword1">
+    <input name="password" value="<?php echo $data_user['password'];?>" type="text" class="form-control" id="exampleInputPassword1">
   </div>
 
   <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input name="name" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1">name</label>
+    <input name="name" type="text" value="<?php echo $data_user['name'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
   <div class="form-group">
-    <label for="exampleInputEmail1">Age</label>
-    <input name="age" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1">age</label>
+    <input name="age" type="number" value="<?php echo $data_user['age'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Birthday</label>
-    <input name="birthday" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="exampleInputEmail1">brithbay</label>
+    <input name="birthday" type="date" value="<?php echo $data_user['birthday'];?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  
+  <div class="form-group">
+    <label for="exampleInputEmail1">picture</label>
+    <input name="picture" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>

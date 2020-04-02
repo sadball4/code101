@@ -8,6 +8,7 @@
       <th scope="col">password</th>
       <th scope="col">name</th>
       <th scope="col">age</th>
+      <th scope="col">Update</th>
       <th scope="col">Del</th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
       <td><?php echo $row['password']?></td>
       <td><?php echo $row['name'];?></td>
       <td><?php echo $row['age'];?></td>
+      <td><a href="<?php echo site_url("user/update/".$row['username']);?>"><button type="button" class="btn ">update</button></a></td>
       <td><a href="<?php echo site_url("user/delete/".$row['username'])?>"><button type="button" class="btn btn-danger">Delete</button></a></td><!--ส่งค่า username ไปที่ class user->funtion delete-->
     </tr>
       <?php } } ?>
