@@ -9,6 +9,7 @@ class User extends CI_Controller {
         $this->load->model('user_model'); //เอาไฟล์ user_model มาจาก model ที่สร้างไว้
     }
 
+    //--------------  form address --------------//
 
     public function addform(){
         $this->load->view('user/addform_view');
@@ -31,9 +32,39 @@ class User extends CI_Controller {
         $this->user_model->add_save_database($data_insert); //เรียกใช้ function add_save_database // function add_save_database ใช้คำสั่ง insert ข้อมูลเข้าฐานข้อมูล แล้วเรียก array data_insert นำข้อมูลที่ส่งมาจาก form มาใส่
 
         echo "<br>OK";
+
+        redirect('user/get_2');
+
         
 
     }
+
+    public function get_2(){
+        $data['data_user']=$this->user_model->get_2();//เรียกใช้ model ที่ชื่อว่า user_model แล้วเรียกใช้ function get
+        $this->load->view('user/get_view2',$data);
+    }
+
+    public function update_2($tel){
+        $data_2['data_add'] = $this->user_model->get_by_add_2($tel); //เรียกใช้ function get_by_username จาก model user_model เรียกข้อมูล ของ  username แล้วเอามาเก็บไวใน $data
+        $this->load->view('user/update_view_2',$data_2);// แล้วส่งไปที่หน้า update_view
+
+    }
+
+    public function updatesave_2(){
+        $this->user_model->updatesave_2();
+
+        redirect('user/get_2');
+
+    }
+
+    public function delete_2($tel){          //รับค่า username
+        $this->user_model->delete_2($tel);   
+
+        redirect('user/get_2');
+    }
+
+
+    //--------------  form Username --------------//
 
     public function addform2(){
         $this->load->view('user/addform_view_2');
